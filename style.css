@@ -1,0 +1,337 @@
+/* =====================================================
+   ALPO - style.css
+   Urutan file: variabel -> reset -> komponen kecil -> tiap bagian halaman
+   ===================================================== */
+
+/* ---------- 1. VARIABEL (CSS Variables) ----------
+   Simpan warna, font, dan jarak di satu tempat.
+   Kalau mau ganti warna, cukup ubah di sini. */
+:root {
+  --bg: #faf9f6;          /* latar halaman (putih hangat) */
+  --text: #1f2421;        /* warna teks utama */
+  --muted: #6b6f6c;       /* teks abu-abu */
+  --line: #e6e3dc;        /* warna garis tipis */
+  --dark: #242b27;        /* tombol & footer gelap */
+  --accent: #e0472b;      /* oranye-merah (garis aktif, tombol cari) */
+  --light: #eef0e3;       /* tombol terang di footer */
+
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+
+  --radius: 6px;
+  --container: 1440px;
+  --gutter: 40px;         /* jarak kiri-kanan halaman */
+}
+
+/* ---------- 2. RESET ----------
+   Hapus gaya bawaan browser supaya konsisten. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+/* box-sizing: border-box -> padding & border dihitung DALAM width. Sangat membantu! */
+
+body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+input { font: inherit; border: 0; outline: 0; }
+
+/* ---------- 3. KOMPONEN UMUM ---------- */
+
+/* Pembungkus: membatasi lebar konten dan memberi jarak kiri-kanan */
+.container {
+  max-width: var(--container);
+  margin-inline: auto;          /* tengah-kan secara horizontal */
+  padding-inline: var(--gutter);
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+}
+
+/* Tombol dasar */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: opacity 0.2s, background 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+
+/* Varian tombol: dipakai bersama .btn, contoh class="btn btn--dark" */
+.btn--dark    { background: var(--dark); color: #fff; }
+.btn--outline { border: 1px solid var(--line); background: #fff; }
+.btn--light   { background: var(--light); color: var(--dark); }
+.btn--wide    { padding: 14px 40px; }
+
+/* Tab (dipakai di kategori & toolbar) */
+.tab {
+  position: relative;
+  padding: 14px 0;
+  color: var(--muted);
+}
+.tab:hover { color: var(--text); }
+
+.tab.is-active {
+  color: var(--text);
+  font-weight: 600;
+}
+/* Garis oranye di bawah tab aktif, dibuat pakai ::after */
+.tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* Judul bagian */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+.section-subtitle { color: var(--muted); margin-top: 4px; }
+
+.center { text-align: center; }
+.link-small { font-size: 13px; }
+
+/* ---------- 4. NAVBAR ---------- */
+.navbar {
+  display: flex;                  /* susun anak secara horizontal */
+  align-items: center;            /* sejajarkan vertikal di tengah */
+  height: 88px;
+  gap: 60px;
+}
+.navbar__menu { display: flex; gap: 32px; font-weight: 500; }
+
+.navbar__actions {
+  margin-left: auto;              /* dorong ke kanan ujung */
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ---------- 5. KATEGORI ---------- */
+.categories {
+  display: flex;
+  gap: 36px;
+  border-top: 1px solid var(--line);
+  overflow-x: auto;               /* bisa digeser di layar kecil */
+  white-space: nowrap;
+}
+
+/* ---------- 6. HERO ---------- */
+.hero {
+  position: relative;
+  max-width: calc(var(--container) - 2 * 33px);
+  margin: 4px auto 0;
+  padding: 44px 48px;
+  min-height: 500px;
+  border-radius: 16px;
+  color: #fff;
+  overflow: hidden;
+
+  /* Gradasi menyerupai foto gurun. Ganti dengan: background: url("hero.jpg") center/cover;
+     Gradasi pertama (gelap di kiri) dipakai agar teks tetap terbaca. */
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, #2c3a4d 0%, #6b6f7a 35%, #c98a5e 60%, #3a2a24 100%);
+}
+
+.hero__eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;            /* jarak antar huruf */
+  font-weight: 500;
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 84px;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin: 40px 0 20px;
+}
+.hero__subtitle { font-size: 16px; }
+
+/* Kotak pencarian */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 762px;
+  margin-top: 28px;
+  padding: 8px 8px 8px 24px;
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+}
+.search input { flex: 1; font-size: 15px; }   /* flex:1 -> mengisi sisa ruang */
+.search__btn {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 18px;
+}
+
+.hero__trending {
+  margin-top: 26px;
+  font-size: 13px;
+  display: flex;
+  gap: 16px;
+}
+.hero__credit {
+  position: absolute;             /* posisi bebas relatif terhadap .hero */
+  right: 48px;
+  bottom: 28px;
+  text-align: right;
+  font-size: 13px;
+}
+.hero__credit small { font-size: 11px; }
+
+/* ---------- 7. INSPIRASI ---------- */
+.inspiration { padding-top: 40px; }
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;  /* tab di kiri, tombol di kanan */
+  align-items: center;
+  margin: 32px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+.toolbar__tabs { display: flex; gap: 32px; }
+.toolbar__buttons { display: flex; gap: 12px; padding-bottom: 8px; }
+.toolbar__buttons .btn { padding: 8px 28px; font-weight: 400; }
+
+/* GALERI ala Pinterest memakai CSS columns:
+   - column-count: 4 -> 4 kolom
+   - break-inside: avoid -> kartu tidak terpotong antar kolom */
+.gallery {
+  column-count: 4;
+  column-gap: 16px;
+}
+.card {
+  break-inside: avoid;
+  margin-bottom: 24px;
+}
+.photo {
+  height: var(--h);                                  /* tinggi dari style inline */
+  border-radius: 4px;
+  background: linear-gradient(160deg, var(--a), var(--b));
+}
+.card figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.inspiration .center { margin: 8px 0 60px; }
+
+/* ---------- 8. KOLEKSI ---------- */
+.collections__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+/* CSS Grid: 3 kolom sama lebar. 1fr = satu bagian dari ruang tersedia */
+.collections__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-bottom: 36px;
+}
+.collection__img {
+  height: 130px;
+  border-radius: 4px;
+  background: linear-gradient(120deg, var(--a), var(--b));
+  margin-bottom: 14px;
+}
+.collection h3 { font-size: 17px; font-weight: 500; }
+.collection p  { font-size: 12px; color: var(--muted); }
+
+/* ---------- 9. FOOTER ---------- */
+.footer {
+  background: var(--dark);
+  color: #fff;
+  padding: 36px 0 12px;
+}
+.footer__cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.footer__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 1.1;
+}
+.footer__cta p { color: rgba(255, 255, 255, 0.7); }
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+}
+.footer__brand { display: flex; align-items: center; gap: 24px; }
+.footer__tagline { font-size: 12px; color: rgba(255, 255, 255, 0.7); }
+.footer__links { display: flex; gap: 48px; font-size: 13px; }
+.footer__legal {
+  display: flex;
+  flex-direction: column;     /* susun vertikal */
+  align-items: flex-end;
+  gap: 8px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer__note {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: -12px;
+}
+
+/* ---------- 10. RESPONSIF ----------
+   @media = aturan yang hanya berlaku di lebar layar tertentu. */
+@media (max-width: 1024px) {
+  .gallery { column-count: 3; }
+  .hero__title { font-size: 64px; }
+}
+
+@media (max-width: 700px) {
+  :root { --gutter: 20px; }
+
+  .navbar { gap: 20px; }
+  .navbar__menu { display: none; }
+
+  .hero { margin-inline: 12px; padding: 28px 24px; }
+  .hero__title { font-size: 48px; }
+  .hero__credit { display: none; }
+
+  .toolbar { flex-direction: column; align-items: flex-start; }
+  .gallery { column-count: 2; }
+  .collections__grid { grid-template-columns: 1fr; }
+
+  .footer__cta,
+  .footer__bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .footer__legal { align-items: flex-start; }
+}

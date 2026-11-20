@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alpo</title>
+
+  <!-- Font: Inter (teks biasa) dan Instrument Serif (judul) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar container">
+    <a href="#" class="logo">alpo</a>
+
+    <nav class="navbar__menu">
+      <a href="#">Explore ⌄</a>
+      <a href="#">Collections</a>
+    </nav>
+
+    <div class="navbar__actions">
+      <a href="#" class="link-login">Log in</a>
+      <a href="#" class="btn btn--dark">Sign up</a>
+    </div>
+  </header>
+
+  <!-- ============ KATEGORI ============ -->
+  <nav class="categories container">
+    <a href="#" class="tab is-active">Discover</a>
+    <a href="#" class="tab">Nature</a>
+    <a href="#" class="tab">People</a>
+    <a href="#" class="tab">Architecture</a>
+    <a href="#" class="tab">Travel</a>
+    <a href="#" class="tab">Textures &amp; patterns</a>
+    <a href="#" class="tab">Food &amp; drink</a>
+    <a href="#" class="tab">Interiors</a>
+    <a href="#" class="tab">Street photography</a>
+  </nav>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <p class="hero__eyebrow">A WORLD WORTH SEEING</p>
+      <h1 class="hero__title">Find your next<br /><em>beautiful idea.</em></h1>
+      <p class="hero__subtitle">Extraordinary images. Independent perspectives. Endless possibility.</p>
+
+      <form class="search">
+        <span class="search__icon">🔍</span>
+        <input type="text" placeholder="Search for the way you see the world" />
+        <span class="search__chevron">⌄</span>
+        <button type="submit" class="search__btn" aria-label="Search">→</button>
+      </form>
+
+      <p class="hero__trending">
+        <strong>Trending searches</strong>
+        <span>coastal living</span> · <span>slow mornings</span> · <span>wild places</span>
+      </p>
+
+      <p class="hero__credit">Sossusvlei, Namibia<br /><small>Photography by Alex Morgan</small></p>
+    </section>
+
+    <!-- ============ INSPIRASI ============ -->
+    <section class="inspiration container">
+      <h2 class="section-title">A little inspiration. A whole new perspective.</h2>
+      <p class="section-subtitle">Handpicked photography for whatever you’re imagining.</p>
+
+      <div class="toolbar">
+        <div class="toolbar__tabs">
+          <a href="#" class="tab is-active">For you</a>
+          <a href="#" class="tab">Editorial</a>
+          <a href="#" class="tab">Wallpapers</a>
+          <a href="#" class="tab">3D &amp; renders</a>
+          <a href="#" class="tab">Illustrations</a>
+        </div>
+        <div class="toolbar__buttons">
+          <button class="btn btn--outline">Featured ⌄</button>
+          <button class="btn btn--outline">⚙ Filters</button>
+        </div>
+      </div>
+
+      <!--
+        GALERI: tiap .card punya variabel --h (tinggi) dan --a, --b (warna gradasi).
+        Ganti .photo dengan <img src="foto.jpg"> kalau sudah punya fotonya.
+      -->
+      <div class="gallery">
+        <figure class="card"><div class="photo" style="--h:330px;--a:#2a8fa8;--b:#9bb4c0"></div><figcaption>Sofia Chen</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:250px;--a:#e9dcc6;--b:#b98a63"></div><figcaption>Oliver Park</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:290px;--a:#e5b9a3;--b:#5f7f4a"></div><figcaption>Luca Moretti</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:350px;--a:#2f4a33;--b:#16261a"></div><figcaption>Isabella Green</figcaption></figure>
+
+        <figure class="card"><div class="photo" style="--h:250px;--a:#1f5fae;--b:#0f3f80"></div><figcaption>Daniel Lee</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:350px;--a:#e8c9a0;--b:#c98f55"></div><figcaption>Amara Okafor</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:250px;--a:#b8bdb9;--b:#7d8a86"></div><figcaption>Mia Thompson</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:270px;--a:#d9c8a9;--b:#2e9aa3"></div><figcaption>Finn Brooks</figcaption></figure>
+
+        <figure class="card"><div class="photo" style="--h:260px;--a:#14283f;--b:#d9772b"></div><figcaption>Alex Rivera</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:250px;--a:#f2dca0;--b:#d9593a"></div><figcaption>Emma Wilson</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:300px;--a:#d9694a;--b:#1d58b0"></div><figcaption>Noah Kim</figcaption></figure>
+        <figure class="card"><div class="photo" style="--h:220px;--a:#f2cdbd;--b:#e8a98f"></div><figcaption>Eva Laurent</figcaption></figure>
+      </div>
+
+      <div class="center">
+        <a href="#" class="btn btn--dark btn--wide">Explore more photos</a>
+      </div>
+    </section>
+
+    <!-- ============ KOLEKSI ============ -->
+    <section class="collections container">
+      <div class="collections__head">
+        <div>
+          <h2 class="section-title">Good things, gathered.</h2>
+          <p class="section-subtitle">A fresh point of view, curated by us.</p>
+        </div>
+        <a href="#" class="link-small">View all collections ↗</a>
+      </div>
+
+      <div class="collections__grid">
+        <article class="collection">
+          <div class="collection__img" style="--a:#d9cdb8;--b:#a88c6a"></div>
+          <h3>The art of less</h3>
+          <p>86 photos · Shape, space &amp; simplicity</p>
+        </article>
+        <article class="collection">
+          <div class="collection__img" style="--a:#e8d8bd;--b:#8f7a55"></div>
+          <h3>A softer pace</h3>
+          <p>124 photos · Find beauty in the everyday</p>
+        </article>
+        <article class="collection">
+          <div class="collection__img" style="--a:#3d6b6a;--b:#1f3a35"></div>
+          <h3>Outside, always</h3>
+          <p>208 photos · A breath of fresh perspective</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__cta">
+        <div>
+          <h2 class="footer__title">Your perspective belongs here.</h2>
+          <p>Join a community of curious eyes. Share your work with the world.</p>
+        </div>
+        <a href="#" class="btn btn--light">Become a contributor ↗</a>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__brand">
+          <span class="logo">alpo</span>
+          <span class="footer__tagline">A fresh way to see.</span>
+        </div>
+
+        <nav class="footer__links">
+          <a href="#">About</a>
+          <a href="#">License</a>
+          <a href="#">Help center</a>
+          <a href="#">Instagram ↗</a>
+        </nav>
+
+        <div class="footer__legal">
+          <span>© 2026 Alpo</span>
+          <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+        </div>
+      </div>
+      <p class="footer__note">Thoughtfully sourced. Beautifully unexpected.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
